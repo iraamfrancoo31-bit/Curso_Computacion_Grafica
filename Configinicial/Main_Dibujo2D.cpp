@@ -1,3 +1,10 @@
+/*
+- Practica_2
+- 29-Agosto-2026-Sabado
+- Valenzuela Franco Iram Israel
+- 317313143
+*/
+
 #include<iostream>
 
 //#define GLEW_STATIC
@@ -23,11 +30,11 @@ int main() {
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);*/
 
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Dibujo de Primitivas en 2D", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Valenzuela Franco Iram Israel", NULL, NULL);
 	glfwSetFramebufferSizeCallback(window, resize);
-	
+
 	//Verificaci�n de errores de creacion  ventana
-	if (window== NULL) 
+	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
@@ -55,24 +62,95 @@ int main() {
 	// Define las dimensiones del viewport
 	//glViewport(0, 0, screenWidth, screenHeight);
 
-    Shader ourShader("Shader/core.vs", "Shader/core.frag");
+	Shader ourShader("Shader/core.vs", "Shader/core.frag");
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	float vertices[] = {
-		0.2f, 0.5f, 0.0f,    1.0f,0.0f,1.0f,  // top right    X,Y,Z    R,G,B
-		0.5f, -0.1f, 0.0f,    1.0f,1.0f,0.0f,  // bottom right
-		-0.5f, -0.1f, 0.0f,   1.0f,0.0f,0.0f,  // bottom left
-		-0.2f, 0.5f, 0.0f,   0.0f,1.0f,1.0f, // top left 
+
+		//Estrella
+		0.0f, 0.6f, 0.0f,    1.0f,1.0f,0.0f,
+		0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		-0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+
+		-0.6f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		-0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		-0.4f, -0.2f, 0.0f,    1.0f,1.0f,0.0f,
+
+		0.6f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		0.4f, -0.2f, 0.0f,    1.0f,1.0f,0.0f,
+
+		0.0f, -0.4f, 0.0f,    1.0f,1.0f,0.0f,
+		-0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+
+		-0.4f, -0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		-0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		0.0f, -0.4f, 0.0f,   1.0f,1.0f,0.0f,
+
+		0.4f, -0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		0.2f, 0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		0.0f, -0.4f, 0.0f,   1.0f,1.0f,0.0f,
+
+		-0.4f, -0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		-0.6f, -0.6f, 0.0f,    1.0f,1.0f,0.0f,
+		0.0f, -0.4f, 0.0f,   1.0f,1.0f,0.0f,
+
+		0.4f, -0.2f, 0.0f,    1.0f,1.0f,0.0f,
+		0.6f, -0.6f, 0.0f,    1.0f,1.0f,0.0f,
+		0.0f, -0.4f, 0.0f,   1.0f,1.0f,0.0f,
+
+		// KIRBY
+
+
+		// 1T
+		-0.5f, 0.1f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.3f, 0.1f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.6f, 0.2f, 0.0f,    1.0f,0.3f,0.5f,
+		// 2T
+		-0.3f, 0.1f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.6f, 0.2f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.6f, 0.4f, 0.0f,    1.0f,0.3f,0.5f,
+		// 3T
+		-0.3f, 0.1f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.6f, 0.4f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.4f, 0.6f, 0.0f,    1.0f,0.3f,0.5f,
+		//4t
+		-0.3f, 0.1f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.4f, 0.6f, 0.0f,    1.0f,0.3f,0.5f,
+		-0.1f, 0.5f, 0.0f,    1.0f,0.3f,0.5f,
+		//5t
+		-0.3f, 0.1f, 0.0f,   1.0f,0.3f,0.5f,
+		-0.1f, 0.5f, 0.0f,   1.0f,0.3f,0.5f,
+		-0.1f, 0.3f, 0.0f,   1.0f,0.3f,0.5f,
+		//6t
+		-0.6f, 0.4f, 0.0f,   1.0f,0.3f,0.5f,
+		-0.55f, 0.55f, 0.0f, 1.0f,0.3f,0.5f,
+		-0.4f, 0.6f, 0.0f,   1.0f,0.3f,0.5f,
+
+		//ojos
+
+		-0.4f, 0.3f, 0.0f,   0.0f,0.0f,0.0f,
+		-0.4f, 0.2f, 0.0f,   0.0f,0.0f,0.0f,
+		-0.3f, 0.2f, 0.0f,   0.0f,0.0f,0.0f,
+
+		-0.3f, 0.5f, 0.0f,   0.0f,0.0f,0.0f,
+		-0.3f, 0.4f, 0.0f,   0.0f,0.0f,0.0f,
+		-0.2f, 0.4f, 0.0f,   0.0f,0.0f,0.0f,
+
+
+
+
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 		3,2,1,// second Triangle
 		0,1,3,
-		
+
 	};
 
 
 
-	GLuint VBO, VAO,EBO;
+	GLuint VBO, VAO, EBO;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
@@ -90,11 +168,11 @@ int main() {
 	// 4. Despues colocamos las caracteristicas de los vertices
 
 	//Posicion
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid *)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 
 	//Color
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid *)(3*sizeof(GLfloat)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -103,7 +181,7 @@ int main() {
 	glBindVertexArray(0); // Unbind VAO (it's always a good thing to unbind any buffer/array to prevent strange bugs)
 
 
-	
+
 	while (!glfwWindowShouldClose(window))
 	{
 		// Check if any events have been activiated (key pressed, mouse moved etc.) and call corresponding response functions
@@ -116,23 +194,23 @@ int main() {
 
 
 		// Draw our first triangle
-        ourShader.Use();
-        glBindVertexArray(VAO);
+		ourShader.Use();
+		glBindVertexArray(VAO);
 
 
-        //glPointSize(20); // Vertices
-        //glDrawArrays(GL_POINTS,0,4);
-        
-        //glDrawArrays(GL_LINES,0,4);
-        //glDrawArrays(GL_LINE_LOOP,0,4);
-        
-        glDrawArrays(GL_TRIANGLES,0,3);
-        //glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
+		//glPointSize(20); // Vertices
+		//glDrawArrays(GL_POINTS,0,4);
 
-        
-        
-        glBindVertexArray(0);
-    
+		//glDrawArrays(GL_LINES,0,4);
+		//glDrawArrays(GL_LINE_LOOP,0,4);
+
+		glDrawArrays(GL_TRIANGLES, 0, 51);
+		//glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
+
+
+
+		glBindVertexArray(0);
+
 		// Swap the screen buffers
 		glfwSwapBuffers(window);
 	}
