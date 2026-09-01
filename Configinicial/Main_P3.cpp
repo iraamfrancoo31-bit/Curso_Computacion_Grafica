@@ -1,3 +1,10 @@
+/*
+- Practica_3
+- 01-Septiembre-2026-Martes
+- Valenzuela Franco Iram Israel
+- 317313143
+*/
+
 #include<iostream>
 
 //#define GLEW_STATIC
@@ -29,7 +36,7 @@ int main() {
 
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Previo3_Iram_Valenzuela", nullptr, nullptr);
+	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Práctica3_Iram_Valenzuela", nullptr, nullptr);
 
 	int screenWidth, screenHeight;
 
@@ -218,9 +225,12 @@ int main() {
 		glm::mat4 model=glm::mat4(1);
 		glm::mat4 view=glm::mat4(1);
 	
-		view = glm::translate(view, glm::vec3(0.0f,0.0f,-10.0f));
+
+		// Letra I
+
+		view = glm::translate(view, glm::vec3(0.0f,-2.0f,-8.0f));
 		model = glm::rotate( model, 0.5f, glm::vec3( 0.0f, 1.0f, 0.0f ) ); // use to compare orthographic and perspective projection
-		model = glm::scale(model, glm::vec3(2.0f, 3.0f, 1.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		//view = glm::translate( view, glm::vec3( screenWidth / 2, screenHeight / 2,-700.0f ) ); // use with orthographic projection
 		
 		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
@@ -234,17 +244,59 @@ int main() {
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
+		//Letra S
+
 		model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(5.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, 45.0f, glm::vec3(0.0f, 0.0f, 1.0f)); // use to com
-		model = glm::scale(model, glm::vec3(0.8f, 1.0f, 0.5f));
+		model = glm::translate(model, glm::vec3(1.0f, 1.1f, -7.0f));
+		model = glm::rotate(model, 45.0f, glm::vec3(0.0f, 1.0f, 0.0f)); // use to com
+		model = glm::scale(model, glm::vec3(-3.0f, 3.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		glBindVertexArray(0);
+		//Letra R
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 2.9f, 0.0f));
+		model = glm::rotate(model, 45.0f, glm::vec3(-2.0f, 1.0f, 0.0f)); // use to com
+		model = glm::scale(model, glm::vec3(0.5f, 1.0f, 0.5f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 
+		//Letra A
 
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 3.3f, 1.5f));
+		model = glm::rotate(model, 45.0f, glm::vec3(0.0f, -1.0f, 0.0f)); // use to com
+		model = glm::scale(model, glm::vec3(1.0f, 0.1f, 1.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Letra E
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 4.1f, 1.5f));
+		model = glm::rotate(model, 45.0f, glm::vec3(1.0f, 1.0f, 1.0f)); // use to com
+		model = glm::scale(model, glm::vec3(1.2f, 1.0f, -0.5f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Letra L
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 9.8f, -8.0f));
+		model = glm::rotate(model, 45.0f, glm::vec3(-1.0f, 2.0f, -1.0f)); // use to com
+		model = glm::scale(model, glm::vec3(-1.0f, -1.0f, -1.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//glBindVertexArray(0);
+
+
+		//view = glm::translate(view, glm::vec3(0.0f, -2.0f, -8.0f));
+		//model = glm::rotate(model, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f)); // use to compare orthographic and perspective projection
+		//model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		
 		
 		
