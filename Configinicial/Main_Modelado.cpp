@@ -1,5 +1,5 @@
-/*	- Previo4
-	- 07-septiembre-2026-lunes
+/*	- Práctca4
+	- 11-septiembre-2026-viernes
 	- Valenzuela Franco Iram Israel
 	- 317313143*/
 
@@ -29,6 +29,7 @@ float movY = 0.0f;
 float movZ = -5.0f;
 float rot = 0.0f;
 float rotY = 0.0f;
+float rotZ = 0.0f;
 int main() {
 	glfwInit();
 	//Verificaci�n de compatibilidad 
@@ -40,7 +41,7 @@ int main() {
 
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Previo4_Iram_Valenzuela", nullptr, nullptr);
+	GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Práctica4_Iram_Valenzuela", nullptr, nullptr);
 
 	int screenWidth, screenHeight;
 
@@ -88,47 +89,48 @@ int main() {
 
 	// use with Perspective Projection
 	float vertices[] = {
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f,0.0f,//Front
-		0.5f, -0.5f, 0.5f,  1.0f, 0.0f,0.0f,
-		0.5f,  0.5f, 0.5f,  1.0f, 0.0f,0.0f,
-		0.5f,  0.5f, 0.5f,  1.0f, 0.0f,0.0f,
-		-0.5f,  0.5f, 0.5f, 1.0f, 0.0f,0.0f,
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f,0.0f,
 		
-	    -0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,//Back
-		 0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-		 0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-		 0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-	    -0.5f,  0.5f,-0.5f, 0.0f, 1.0f,0.0f,
-	    -0.5f, -0.5f,-0.5f, 0.0f, 1.0f,0.0f,
+		-0.5f, -0.5f, 0.5f, 0.72f, 0.48f, 0.05f,//Front
+		 0.5f, -0.5f, 0.5f, 0.72f, 0.48f, 0.05f,
+		 0.5f,  0.5f, 0.5f, 0.72f, 0.48f, 0.05f,
+		 0.5f,  0.5f, 0.5f, 0.72f, 0.48f, 0.05f,
+		-0.5f,  0.5f, 0.5f, 0.72f, 0.48f, 0.05f,
+		-0.5f, -0.5f, 0.5f, 0.72f, 0.48f, 0.05f,
 		
-		 0.5f, -0.5f,  0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f, -0.5f, -0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f, 0.0f,1.0f,
-		 0.5f,  -0.5f, 0.5f, 0.0f, 0.0f,1.0f,
+		-0.5f, -0.5f, -0.5f, 0.72f, 0.48f, 0.05f,//Back
+		 0.5f, -0.5f, -0.5f, 0.72f, 0.48f, 0.05f,
+		 0.5f,  0.5f, -0.5f, 0.72f, 0.48f, 0.05f,
+		 0.5f,  0.5f, -0.5f, 0.72f, 0.48f, 0.05f,
+		-0.5f,  0.5f, -0.5f, 0.72f, 0.48f, 0.05f,
+		-0.5f, -0.5f, -0.5f, 0.72f, 0.48f, 0.05f,
+		
+		 0.5f, -0.5f,  0.5f,  0.82f, 0.58f,0.03f,
+		 0.5f, -0.5f, -0.5f,  0.82f, 0.58f,0.03f,
+		 0.5f,  0.5f, -0.5f,  0.82f, 0.58f,0.03f,
+		 0.5f,  0.5f, -0.5f,  0.82f, 0.58f,0.03f,
+		 0.5f,  0.5f,  0.5f,  0.82f, 0.58f,0.03f,
+		 0.5f,  -0.5f, 0.5f, 0.82f, 0.58f,0.03f,
       
-		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f,0.0f,
-		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f,0.0f,
+		-0.5f,  0.5f,  0.5f,  0.82f, 0.58f,0.03f,
+		-0.5f,  0.5f, -0.5f,  0.82f, 0.58f,0.03f,
+		-0.5f, -0.5f, -0.5f,  0.82f, 0.58f,0.03f,
+		-0.5f, -0.5f, -0.5f,  0.82f, 0.58f,0.03f,
+		-0.5f, -0.5f,  0.5f,  0.82f, 0.58f,0.03f,
+		-0.5f,  0.5f,  0.5f,  0.82f, 0.58f,0.03f,
 		
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,1.0f,
-		0.5f, -0.5f, -0.5f,  0.0f, 1.0f,1.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, 1.0f,1.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, 1.0f,1.0f,
-		-0.5f, -0.5f,  0.5f, 0.0f, 1.0f,1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 1.0f,1.0f,
+		-0.5f, -0.5f, -0.5f, 0.92f, 0.68f,0.01f,
+		0.5f, -0.5f, -0.5f,  0.92f, 0.68f,0.01f,
+		0.5f, -0.5f,  0.5f,  0.92f, 0.68f,0.01f,
+		0.5f, -0.5f,  0.5f,  0.92f, 0.68f,0.01f,
+		-0.5f, -0.5f,  0.5f, 0.92f, 0.68f,0.01f,
+		-0.5f, -0.5f, -0.5f, 0.92f, 0.68f,0.01f,
 		
-		-0.5f,  0.5f, -0.5f, 1.0f, 0.2f,0.5f,
-		0.5f,  0.5f, -0.5f,  1.0f, 0.2f,0.5f,
-		0.5f,  0.5f,  0.5f,  1.0f, 0.2f,0.5f,
-		0.5f,  0.5f,  0.5f,  1.0f, 0.2f,0.5f,
-		-0.5f,  0.5f,  0.5f, 1.0f, 0.2f,0.5f,
-		-0.5f,  0.5f, -0.5f, 1.0f, 0.2f,0.5f,
+		-0.5f,  0.5f, -0.5f, 0.92f, 0.68f,0.01f,
+		0.5f,  0.5f, -0.5f,  0.92f, 0.68f,0.01f,
+		0.5f,  0.5f,  0.5f,  0.92f, 0.68f,0.01f,
+		0.5f,  0.5f,  0.5f,  0.92f, 0.68f,0.01f,
+		-0.5f,  0.5f,  0.5f, 0.92f, 0.68f,0.01f,
+		-0.5f,  0.5f, -0.5f, 0.92f, 0.68f,0.01f,
 	};
 
 
@@ -191,30 +193,35 @@ int main() {
 		view = glm::translate(view, glm::vec3(movX, movY, movZ));
 		view = glm::rotate(view, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
 		view = glm::rotate(view, glm::radians(rotY), glm::vec3(1.0f, 0.0f, 0.0f));
+		view = glm::rotate(view, glm::radians(rotZ), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
 		GLint viewLoc = glGetUniformLocation(ourShader.Program, "view");
 		GLint projecLoc = glGetUniformLocation(ourShader.Program, "projection");
-
+		GLint colorLoc = glGetUniformLocation(ourShader.Program, "objectColor");
+		GLint useObjectColorLoc = glGetUniformLocation(ourShader.Program, "useObjectColor");
 
 		glUniformMatrix4fv(projecLoc, 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 	
 
 		glBindVertexArray(VAO);
-	
+		//Torso
 	    model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.0f, -0.6f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		
 		//Cabeza
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(0.7f, 0.7f, 1.0f)); 
-		model = glm::translate(model, glm::vec3(0.0f, 0.35f, 0.0f)); 
+		model = glm::scale(model, glm::vec3(0.7f, 0.7f, 0.7f)); 
+		model = glm::translate(model, glm::vec3(0.0f, 0.35f, 0.20f)); 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//// Pata 1 izquierda perro
@@ -222,6 +229,7 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.2f, 0.5f, 0.5f));
 		model = glm::translate(model, glm::vec3(3.0f, -1.72f, -0.5f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//// muslo 1 izquierdo perro
@@ -229,6 +237,7 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.2f, 0.4f, 0.5f));
 		model = glm::translate(model, glm::vec3(3.0f, -2.28f, -0.1f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//// pie 1 izquierdo perro
@@ -236,13 +245,17 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
 		model = glm::translate(model, glm::vec3(3.0f, -5.05f, 1.5f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 
 		// Pata 2 derecha perro
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.2f, 0.5f, 0.5f));
 		model = glm::translate(model, glm::vec3(-3.0f, -1.72f, -0.5f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//// muslo 2 derecho perro
@@ -250,6 +263,7 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.2f, 0.4f, 0.5f));
 		model = glm::translate(model, glm::vec3(-3.0f, -2.28f, -0.1f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//// pie 1 derecho perro
@@ -257,13 +271,17 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.2f, 0.2f, 0.2f));
 		model = glm::translate(model, glm::vec3(-3.0f, -5.05f, 1.5f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 
 		// Pata 3
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.5f, 0.2f));
 		model = glm::translate(model, glm::vec3(-1.0f, -1.72f, 3.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		// pie derecho perro 3
@@ -271,13 +289,17 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.3f, 0.2f, 0.2f));
 		model = glm::translate(model, glm::vec3(-1.0f, -5.05f, 4.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 
 		// Pata 4
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.5f, 0.2f));
 		model = glm::translate(model, glm::vec3(1.0f, -1.72f, 3.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		// pie izquierdo perro 4
@@ -285,22 +307,96 @@ int main() {
 		model = glm::scale(model, glm::vec3(0.3f, 0.2f, 0.2f));
 		model = glm::translate(model, glm::vec3(1.0f, -5.05f, 4.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 
 		// Boca
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.3f));
 		model = glm::translate(model, glm::vec3(0.0f, 0.5f, 2.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 0);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		// Nariz
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.35f, 0.15f, 0.15f));
+		model = glm::translate(model, glm::vec3(0.0f, 1.55f, 4.55f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 
 		// Orejas
 		model = glm::mat4(1.0f);
-		model = glm::scale(model, glm::vec3(1.2f, 0.3f, 0.2f));
-		model = glm::translate(model, glm::vec3(0.0f, 1.5f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.4f, 0.3f, 0.2f));
+		model = glm::translate(model, glm::vec3(0.0f, 1.45f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 
+		// Oreja izquierda perro
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.1f, 0.2f, 0.2f));
+		model = glm::translate(model, glm::vec3(6.5f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
+
+		// Oreja derecha perro
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.1f, 0.2f, 0.2f));
+		model = glm::translate(model, glm::vec3(-6.5f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
+
+		//Ojo Derecho perro
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.15f, 0.15f, 0.15f));
+		model = glm::translate(model, glm::vec3(-2.0f, 1.55f, 3.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.0f, 0.0f, 0.0f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
+
+		//Ojo Izquierdo perro
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.15f, 0.15f, 0.15f));
+		model = glm::translate(model, glm::vec3(2.0f, 1.55f, 3.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.0f, 0.0f, 0.0f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
+
+		//iris Izquierdo perro
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.15f, 0.15f, 0.15f));
+		model = glm::translate(model, glm::vec3(2.0f, 2.55f, 3.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		
+		//iris derecho perro
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.15f, 0.15f, 0.15f));
+		model = glm::translate(model, glm::vec3(-2.0f, 2.55f, 3.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		glBindVertexArray(0);
 		// Swap the screen buffers
@@ -338,6 +434,10 @@ int main() {
 		 rotY += 0.02f;
 	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 		 rotY -= 0.02f;
+	 if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+		 rotZ += 0.02f;
+	 if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+		 rotZ -= 0.02f;
  }
  
 
