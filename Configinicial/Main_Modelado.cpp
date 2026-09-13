@@ -398,6 +398,16 @@ int main() {
 		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
+		// Nariz
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.2f, 0.10f, 0.45f));
+		model = glm::translate(model, glm::vec3(0.0f, -6.3f, -1.5f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(useObjectColorLoc, 1);
+		glUniform3f(colorLoc, 0.42f, 0.18f, 0.05f);
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
+
 		glBindVertexArray(0);
 		// Swap the screen buffers
 		glfwSwapBuffers(window);
