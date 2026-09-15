@@ -257,7 +257,25 @@ int main() {
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);//E
 
+		//Model Dedo2 A
+		model = glm::translate(modelTemp2, glm::vec3(0.25f, 0.35f, -0.12f));
+		model = glm::rotate(model, glm::radians(dedo1), glm::vec3(0.0f, 0.0, 1.0f));
+		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(0.0f, 1.0f, 1.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//F
 
+		//Model Dedo1 B
+		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(dedo2), glm::vec3(0.0f, 0.0, 1.0f));
+		model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f, 0.3f, 0.25f));
+		color = glm::vec3(1.0f, 0.0f, 1.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);//G
 
 		glBindVertexArray(0);
 
@@ -290,9 +308,9 @@ void Inputs(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		movZ += 0.008f;
 	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-		rot += 0.18f;
+		rot += 0.08f;
 	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-		rot -= 0.18f;
+		rot -= 0.08f;
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
 		hombro += 0.18f;
 	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
