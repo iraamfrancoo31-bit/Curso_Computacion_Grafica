@@ -398,7 +398,7 @@ int main() {
 		glUniform3f(colorLoc, 1.0f, 1.0f, 1.0f);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		// Nariz
+		// Colita
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.2f, 0.10f, 0.45f));
 		model = glm::translate(model, glm::vec3(0.0f, -6.3f, -1.5f));
